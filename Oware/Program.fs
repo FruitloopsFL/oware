@@ -4,9 +4,13 @@ type StartingPosition =
     | South
     | North
 
-let getSeeds n board = failwith "Not implemented"
+let getSeeds n board = 
+    board[n]
 
-let useHouse n board = failwith "Not implemented"
+let useHouse n board = 
+    let x = getSeeds n board
+    board[n] = board[n] - x
+    
 
 let start position = failwith "Not implemented"
 
