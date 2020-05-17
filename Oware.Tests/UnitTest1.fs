@@ -4,7 +4,7 @@ open FsUnit
 
 let charOf = function
     | 1 -> 'A' | 2 -> 'B' | 3 -> 'C' | 4 -> 'D' | 5 -> 'E' | 6 -> 'F'
-    | 7 -> 'a' | 8 -> 'b' | 9 -> 'c' | 10 -> 'd' | 11 -> 'e' | 12 -> 'f'
+    | 7 -> 'a' | 8 -> 'b' | 9 -> 'c' | 10 -> 'd' | 11 -> 'e' | 12 -> 'f' | _ -> failwith "Invalid"
 
 let makeString = List.map (charOf >> string) >> String.concat ""
 
@@ -41,57 +41,57 @@ let ``When house 1 is used, seeds go to the other houses`` () =
 
 [<Test>]
 let ``When house 2 is used, seeds go to the other houses`` () =
-    let board = start South |> useHouse 2
+    let board = start South |> useHouse 2 
     board |> hasSeedCount (4,0,5,5,5,5,4,4,4,4,4,4)
 
 [<Test>]
 let ``When house 3 is used, seeds go to the other houses`` () =
-    let board = start South |> useHouse 3
+    let board = start South |> useHouse 3 
     board |> hasSeedCount (4,4,0,5,5,5,5,4,4,4,4,4)
 
 [<Test>]
 let ``When house 4 is used, seeds go to the other houses`` () =
-    let board = start South |> useHouse 4
+    let board = start South |> useHouse 4 
     board |> hasSeedCount (4,4,4,0,5,5,5,5,4,4,4,4)
 
 [<Test>]
 let ``When house 5 is used, seeds go to the other houses`` () =
-    let board = start South |> useHouse 5
+    let board = start South |> useHouse 5 
     board |> hasSeedCount (4,4,4,4,0,5,5,5,5,4,4,4)
 
 [<Test>]
 let ``When house 6 is used, seeds go to the other houses`` () =
-    let board = start South |> useHouse 6
+    let board = start South |> useHouse 6 
     board |> hasSeedCount (4,4,4,4,4,0,5,5,5,5,4,4)
 
 [<Test>]
 let ``When house 7 is used, seeds go to the other houses`` () =
-    let board = start North |> useHouse 7
+    let board = start North |> useHouse 7 
     board |> hasSeedCount (4,4,4,4,4,4,0,5,5,5,5,4)
 
 [<Test>]
 let ``When house 8 is used, seeds go to the other houses`` () =
-    let board = start North |> useHouse 8
+    let board = start North |> useHouse 8 
     board |> hasSeedCount (4,4,4,4,4,4,4,0,5,5,5,5)
 
 [<Test>]
 let ``When house 9 is used, seeds go to the other houses`` () =
-    let board = start North |> useHouse 9
+    let board = start North |> useHouse 9 
     board |> hasSeedCount (5,4,4,4,4,4,4,4,0,5,5,5)
 
 [<Test>]
 let ``When house 10 is used, seeds go to the other houses`` () =
-    let board = start North |> useHouse 10
+    let board = start North |> useHouse 10 
     board |> hasSeedCount (5,5,4,4,4,4,4,4,4,0,5,5)
 
 [<Test>]
 let ``When house 11 is used, seeds go to the other houses`` () =
-    let board = start North |> useHouse 11
+    let board = start North |> useHouse 11 
     board |> hasSeedCount (5,5,5,4,4,4,4,4,4,4,0,5)
 
 [<Test>]
 let ``When house 12 is used, seeds go to the other houses`` () =
-    let board = start North |> useHouse 12
+    let board = start North |> useHouse 12 
     board |> hasSeedCount (5,5,5,5,4,4,4,4,4,4,4,0)
 
 [<Test>]
